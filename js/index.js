@@ -184,7 +184,6 @@ $(function() {
       if (com_skill == HARD) { rate = MIN_RATE }
       // 普通の場合は、一定の確率で強いロジックを選択させる
       else if (com_skill == NORMAL) { rate = Math.floor(Math.random() * MAX_RATE) }
-      console.log(rate)
       // 確立を超えている場合
       if (rate < RATE_THRESHOLD) {
         // 空いているセル番号を取得
@@ -220,9 +219,18 @@ $(function() {
               // 真ん中が自分でない
               } else {
                 // 空いている角を攻める
-                let empty_corner = empty_cell_ids && CORNER_CELLS
-                target_id = empty_corner[Math.floor(Math.random() * empty_corner.length)]
-                $("#" + target_id).html(com_result_symbol)
+                let empty_corner = empty_cell_ids.filter(function(empty_cell_id) {
+                  return CORNER_CELLS.indexOf(empty_cell_id) > -1
+                })
+                // 角が空いている場合、優先的に取る
+                if (empty_corner.length) {
+                  target_id = empty_corner[Math.floor(Math.random() * empty_corner.length)]
+                  $("#" + target_id).html(com_result_symbol)
+                // 空いていなければ、残っているセルをとる
+                } else {
+                  target_id = empty_cells[Math.floor(Math.random() * empty_cells.length)]
+                  $(target_id).html(com_result_symbol)
+                }
               }
             }
           }
@@ -350,3 +358,4 @@ $(function() {
     }
   })
 })
+
