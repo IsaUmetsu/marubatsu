@@ -41,24 +41,26 @@ $(function() {
     // 勝敗がついたあとに空のセルをタップした場合
     } else if (got_match) {
       alert("リセットボタンを押してください")
+    // COMの入力中にタップした場合
     } else if (! finished_com) {
       alert("COMが入力中です")
     // 空のセルをタップ かつ ゲーム継続中の場合
     } else {
+      // 選択したセルにマークを格納
       let result_symbol = now_attack ? BATSU : MARU
       $(this).html(result_symbol)
 
-      last_cells_count--
+      last_cells_count--       // 残り入力可能なセル数を計算
       now_attack = !now_attack // 先攻後攻入れ替え
 
       // 勝敗判定
       if (check_complete()) {
-        got_match = !got_match
+        got_match = true
         alert(result_symbol + "の勝ち！")
         return
       }
 
-      // 引き分け判定
+      // 勝敗つかず、残りセルがなくなった場合、引き分け
       if (! last_cells_count) {
         alert("引き分け！")
         return
@@ -358,4 +360,3 @@ $(function() {
     }
   })
 })
-
