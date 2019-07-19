@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title>〇×ゲーム</title>
+  <link rel="stylesheet" href="./css/style.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+</head>
+
+<body>
+  <div class="buttons">
+    <h1>〇×ゲーム</h1>
+    <button id="atk_first" class="attack">先攻</button><button id="atk_after" class="attack">後攻</button><br>
+    <button id="weak" class="skill">弱い</button><button id="normal" class="skill">普通</button><button id="hard" class="skill">強い</button><br>
+    <button id="start">スタート</button>
+  </div>
+  <div id="game" style="display: none;">
+    <table>
+      <tr><td id="0"></td><td id="1"></td><td id="2"></td></tr>
+      <tr><td id="3"></td><td id="4"></td><td id="5"></td></tr>
+      <tr><td id="6"></td><td id="7"></td><td id="8"></td></tr>
+    </table>
+    <script src="./js/index.js"></script>
+    <div class="buttons">
+      <button id="reset">リセット</button>
+    </div>
+  </div>
+</body>
+
+</html>

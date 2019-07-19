@@ -1,0 +1,31 @@
+table {
+  width: 300px;
+  height: 300px;
+  margin-left: auto;
+  margin-right: auto;
+  /* border-style: solid;
+  border-color: black; */
+}
+
+td {
+  width: calc(100% / 3);
+  height: calc(100% / 3);
+  border-style: ridge;
+  border-color: black;
+  text-align: center;
+  font-size: 36px;
+  /* background-color: #455A64; */
+}
+
+.buttons {
+  text-align: center;
+}
+
+.buttons button {
+  margin: 20px;
+}
+
+.pushed {
+  background-color: gray;
+  color: white;
+}
